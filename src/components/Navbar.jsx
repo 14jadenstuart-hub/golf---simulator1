@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav className="navbar">
             <div className="container navbar-content">
                 <Link to="/" className="logo">
-                    GOLF<span className="logo-accent">SIM</span>
+                    BIRDIE<span className="logo-accent">CLUB</span>
                 </Link>
 
                 <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>

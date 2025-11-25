@@ -6,7 +6,7 @@ const Home = () => {
         <div className="page home">
             <section className="hero">
                 <div className="container">
-                    <h1>Experience the Future of Golf</h1>
+                    <h1>Welcome to Birdie Club</h1>
                     <p>Play on the world's best courses, right here in the city.</p>
                     <div className="hero-actions">
                         <Link to="/tee-times" className="btn-primary">Book a Tee Time</Link>
