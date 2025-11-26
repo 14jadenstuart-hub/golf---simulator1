@@ -221,13 +221,91 @@ button {
 .slot {
     background-color: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    color: var(--color-text);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
 }
 
 .slot:hover {
     border-color: var(--color-primary);
     color: var(--color-primary-dark);
     background-color: rgba(135, 206, 250, 0.1);
+}
+
+/* Trackman Section */
+.trackman-details {
+    padding: 4rem 1rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+}
+
+.trackman-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.trackman-item {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.trackman-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.trackman-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.trackman-image {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.trackman-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.trackman-image:hover img {
+    transform: scale(1.02);
+}
+
+.trackman-info {
+    flex: 1;
+}
+
+.trackman-info h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary-dark);
+}
+
+.trackman-info p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .trackman-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .trackman-item:nth-child(even) {
+        flex-direction: column;
+    }
 }
