@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const trackmanFeatures = [
   {
@@ -26,6 +26,17 @@ const trackmanFeatures = [
 
 const Home = () => {
   const observerRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Scroll to section if hash is present
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver((entries) => {
@@ -52,7 +63,7 @@ const Home = () => {
           <p>Play on the world's best courses, right here in the city.</p>
           <div className="hero-actions">
             <Link to="/tee-times" className="btn-primary">Book a Tee Time</Link>
-            <Link to="/learn-more" className="btn-secondary">Learn More</Link>
+            <a href="#learn-more" className="btn-secondary">Learn More</a>
           </div>
         </div>
       </section>
@@ -86,6 +97,42 @@ const Home = () => {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section id="learn-more" className="learn-more-section container fade-in-section">
+        <h2 className="section-title">About Our Simulators</h2>
+        <div className="info-grid">
+          <div className="info-card">
+            <h3>The Technology</h3>
+            <p>We use state-of-the-art TrackMan 4 dual radar technology to track every shot with pinpoint accuracy. It captures data on club path, face angle, launch angle, and much more.</p>
+          </div>
+          <div className="info-card">
+            <h3>The Courses</h3>
+            <p>Choose from over 100 world-famous courses including St Andrews, Pebble Beach, and more. Experience the challenge of championship golf without leaving the city.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="contact-section container fade-in-section">
+        <h2 className="section-title">Contact Us</h2>
+        <div className="contact-layout">
+          <div className="contact-info">
+            <h3>Location</h3>
+            <p>123 Fairway Drive<br />Golf City, GC 12345</p>
+
+            <h3>Hours</h3>
+            <p>Mon-Sun: 8am - 10pm</p>
+
+            <h3>Phone</h3>
+            <p>(555) 123-4567</p>
+          </div>
+          <form className="contact-form">
+            <input type="text" placeholder="Name" />
+            <input type="email" placeholder="Email" />
+            <textarea placeholder="Message"></textarea>
+            <button type="submit" className="btn-primary">Send Message</button>
+          </form>
         </div>
       </section>
     </div>
